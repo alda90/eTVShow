@@ -1,0 +1,66 @@
+//
+//  ComposableSectionLayouts.swift
+//  eTVShow
+//
+//  Created by Aldair Carrillo on 26/12/22.
+//
+
+import UIKit
+
+// MARK: Layout Sections
+internal extension ComposableSection {
+    
+    func generateLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { [self] (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            let isWideView = layoutEnvironment.container.effectiveContentSize.width > 500
+            
+            let sectionLayoutKind = Section.allCases[sectionIndex]
+            switch (sectionLayoutKind) {
+            case .horizontal: return self.generateHorizontalLayout(isWide: isWideView)
+            case .grid: return self.generateGridLayout(isWide: isWideView)
+            }
+        }
+        
+        return layout
+    }
+    
+    
+    func generateHorizontalLayout(isWide: Bool) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupFractionalWidth = 0.475
+        let groupFractionalHeight: Float = 0.55
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(CGFloat(groupFractionalWidth)),
+            heightDimension: .fractionalWidth(CGFloat(groupFractionalHeight)))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 1)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPaging
+        
+        return section
+    }
+    
+    
+    func generateGridLayout(isWide: Bool) -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 4, bottom: 3, trailing: 4)
+        
+        let groupHeight = NSCollectionLayoutDimension.fractionalWidth(isWide ? 0.75 : 0.95)
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: groupHeight)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        return section
+    }
+}

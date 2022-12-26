@@ -9,6 +9,6 @@ import Foundation
 import Combine
 
 struct HomePresenterOutput {
-    let homeDataPublisher = PassthroughSubject<Result<TokenResponse, Error>, Never>()
+    let homeDataPublisher = PassthroughSubject<Result<TVResponse, Error>, Never>()
 }
 

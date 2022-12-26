@@ -22,6 +22,7 @@ protocol HomePresenterProtocol: AnyObject {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HomePresenter: HomePresenterProtocol {
+
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorInputProtocol?
     var router: HomeRouterProtocol?
@@ -29,20 +30,23 @@ class HomePresenter: HomePresenterProtocol {
     
     private var subscriptions = Set<AnyCancellable>()
     
-
     func bind(input: HomePresenterInput) -> HomePresenterOutput {
         input.loadTVShows.sink { [weak self] type in
-            
+            self?.interactor?.getTvShows(typeService: type)
         }.store(in: &self.subscriptions)
         
         return output
     }
+    
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
-    
-    func interactorGetDataPresenter(receivedData: TokenResponse?, error: Error?) {
-        //output.homeDataPublisher.send()
+    func interactorGetDataPresenter(receivedData: TVResponse?, error: Error?) {
+        if let error = error {
+            output.homeDataPublisher.send(.failure(error))
+        } else if let data = receivedData {
+            output.homeDataPublisher.send(.success(data))
+        }
     }
     
 }

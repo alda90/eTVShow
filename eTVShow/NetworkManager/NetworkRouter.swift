@@ -11,6 +11,7 @@ enum NetworkRouter {
     case getToken
     case sessionLogin(body: Data)
     case createSession(body: Data)
+    case getPopular
     
     private static let baseURLString = "https://api.themoviedb.org/3"
     private static let apiKey = "608cfab9393cf6de1a420e80a1c19ffb"
@@ -33,6 +34,7 @@ enum NetworkRouter {
         case .getToken: return .get
         case .sessionLogin: return .post
         case .createSession: return .post
+        case .getPopular: return .get
 //        case .getVideos: return .get
         }
     }
@@ -45,6 +47,8 @@ enum NetworkRouter {
             return "/authentication/token/validate_with_login"
         case .createSession:
             return "/authentication/session/new"
+        case .getPopular:
+            return "/tv/popular"
 //        case .getVideos(let id):
 //            return "/\(id)/videos"
         }
@@ -57,7 +61,9 @@ enum NetworkRouter {
               var components = URLComponents(url: baseURL, resolvingAgainstBaseURL: false)
                 else { throw NetworkErrorType.parseUrlFail }
     
-        components.queryItems = [URLQueryItem(name: "api_key", value: NetworkRouter.apiKey)]
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: NetworkRouter.apiKey)
+        ]
         
         guard let url = components.url else { throw NetworkErrorType.parseUrlFail }
         

@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7719289849B668F1C4989CCB /* Pods_eTVShowTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B65797EE118998B6E6843FC /* Pods_eTVShowTests.framework */; };
+		83ADF91CED2701B9893556EE /* Pods_eTVShow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0645AA5EAEB899868A488629 /* Pods_eTVShow.framework */; };
 		B8AAB496295676370008EC6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB495295676370008EC6D /* AppDelegate.swift */; };
 		B8AAB498295676370008EC6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB497295676370008EC6D /* SceneDelegate.swift */; };
 		B8AAB49F295676390008EC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8AAB49E295676390008EC6D /* Assets.xcassets */; };
@@ -38,6 +40,14 @@
 		B8AAB4FF2957A1940008EC6D /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB4FE2957A1940008EC6D /* HomePresenter.swift */; };
 		B8AAB5012957A5120008EC6D /* HomePresenterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB5002957A5120008EC6D /* HomePresenterOutput.swift */; };
 		B8AAB5032957A55D0008EC6D /* HomePresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB5022957A55D0008EC6D /* HomePresenterInput.swift */; };
+		B8AAB506295978320008EC6D /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB505295978320008EC6D /* TVShow.swift */; };
+		B8AAB50B295991110008EC6D /* ComposableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB50A295991100008EC6D /* ComposableSection.swift */; };
+		B8AAB50E295992D80008EC6D /* ComposableSectionOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB50D295992D80008EC6D /* ComposableSectionOutput.swift */; };
+		B8AAB511295993260008EC6D /* ComposableSectionLayouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB510295993260008EC6D /* ComposableSectionLayouts.swift */; };
+		B8AAB514295994410008EC6D /* ComposableSectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB513295994410008EC6D /* ComposableSectionDataSource.swift */; };
+		B8AAB517295994B60008EC6D /* TVShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB516295994B60008EC6D /* TVShowCell.swift */; };
+		B8AAB519295996560008EC6D /* ComposableSectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB518295996560008EC6D /* ComposableSectionDelegate.swift */; };
+		B9381E2151D55A91D30E15C9 /* Pods_eTVShow_eTVShowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F090E88501AAF695FCC80F9 /* Pods_eTVShow_eTVShowUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0645AA5EAEB899868A488629 /* Pods_eTVShow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eTVShow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		25A6F616B4E503E42FA56AE1 /* Pods-eTVShowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShowTests.debug.xcconfig"; path = "Target Support Files/Pods-eTVShowTests/Pods-eTVShowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B65797EE118998B6E6843FC /* Pods_eTVShowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eTVShowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F090E88501AAF695FCC80F9 /* Pods_eTVShow_eTVShowUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eTVShow_eTVShowUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43F2AFA63BDE0459905D32A5 /* Pods-eTVShow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow.debug.xcconfig"; path = "Target Support Files/Pods-eTVShow/Pods-eTVShow.debug.xcconfig"; sourceTree = "<group>"; };
+		5E09B2A7378BE89209C28C4E /* Pods-eTVShow-eTVShowUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow-eTVShowUITests.debug.xcconfig"; path = "Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9EE04FFC772F361769B0DA66 /* Pods-eTVShowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShowTests.release.xcconfig"; path = "Target Support Files/Pods-eTVShowTests/Pods-eTVShowTests.release.xcconfig"; sourceTree = "<group>"; };
 		B8AAB492295676370008EC6D /* eTVShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eTVShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8AAB495295676370008EC6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8AAB497295676370008EC6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +110,15 @@
 		B8AAB4FE2957A1940008EC6D /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B8AAB5002957A5120008EC6D /* HomePresenterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterOutput.swift; sourceTree = "<group>"; };
 		B8AAB5022957A55D0008EC6D /* HomePresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterInput.swift; sourceTree = "<group>"; };
+		B8AAB505295978320008EC6D /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		B8AAB50A295991100008EC6D /* ComposableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSection.swift; sourceTree = "<group>"; };
+		B8AAB50D295992D80008EC6D /* ComposableSectionOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionOutput.swift; sourceTree = "<group>"; };
+		B8AAB510295993260008EC6D /* ComposableSectionLayouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionLayouts.swift; sourceTree = "<group>"; };
+		B8AAB513295994410008EC6D /* ComposableSectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionDataSource.swift; sourceTree = "<group>"; };
+		B8AAB516295994B60008EC6D /* TVShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCell.swift; sourceTree = "<group>"; };
+		B8AAB518295996560008EC6D /* ComposableSectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionDelegate.swift; sourceTree = "<group>"; };
+		D21FCC3FDA09F0B725EDD32E /* Pods-eTVShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow.release.xcconfig"; path = "Target Support Files/Pods-eTVShow/Pods-eTVShow.release.xcconfig"; sourceTree = "<group>"; };
+		DE5C74CB68E7904D8A48637E /* Pods-eTVShow-eTVShowUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow-eTVShowUITests.release.xcconfig"; path = "Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83ADF91CED2701B9893556EE /* Pods_eTVShow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7719289849B668F1C4989CCB /* Pods_eTVShowTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,12 +142,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9381E2151D55A91D30E15C9 /* Pods_eTVShow_eTVShowUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA36BE2CB8A906BCCF69EDB4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43F2AFA63BDE0459905D32A5 /* Pods-eTVShow.debug.xcconfig */,
+				D21FCC3FDA09F0B725EDD32E /* Pods-eTVShow.release.xcconfig */,
+				5E09B2A7378BE89209C28C4E /* Pods-eTVShow-eTVShowUITests.debug.xcconfig */,
+				DE5C74CB68E7904D8A48637E /* Pods-eTVShow-eTVShowUITests.release.xcconfig */,
+				25A6F616B4E503E42FA56AE1 /* Pods-eTVShowTests.debug.xcconfig */,
+				9EE04FFC772F361769B0DA66 /* Pods-eTVShowTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B8AAB489295676370008EC6D = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +170,8 @@
 				B8AAB4AB295676390008EC6D /* eTVShowTests */,
 				B8AAB4B5295676390008EC6D /* eTVShowUITests */,
 				B8AAB493295676370008EC6D /* Products */,
+				AA36BE2CB8A906BCCF69EDB4 /* Pods */,
+				E5411135810AEC9CC5C91B94 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,10 +316,11 @@
 		B8AAB4F829579F990008EC6D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAB5072959907B0008EC6D /* View */,
+				B8AAB504295978250008EC6D /* Models */,
 				B8AAB4FD2957A1800008EC6D /* Presenter */,
 				B8AAB4F929579FD80008EC6D /* HomeRouter.swift */,
 				B8AAB4FB2957A0EA0008EC6D /* HomeInteractor.swift */,
-				B8AAB4CD2956809C0008EC6D /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,6 +335,78 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		B8AAB504295978250008EC6D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB505295978320008EC6D /* TVShow.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B8AAB5072959907B0008EC6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB4CD2956809C0008EC6D /* HomeView.swift */,
+				B8AAB508295990CA0008EC6D /* CollectionView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B8AAB508295990CA0008EC6D /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB515295994A00008EC6D /* Cells */,
+				B8AAB50C295992BC0008EC6D /* Binds */,
+				B8AAB509295990EE0008EC6D /* ComposableSection */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		B8AAB509295990EE0008EC6D /* ComposableSection */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB50F295993080008EC6D /* Extensions */,
+				B8AAB50A295991100008EC6D /* ComposableSection.swift */,
+			);
+			path = ComposableSection;
+			sourceTree = "<group>";
+		};
+		B8AAB50C295992BC0008EC6D /* Binds */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB50D295992D80008EC6D /* ComposableSectionOutput.swift */,
+			);
+			path = Binds;
+			sourceTree = "<group>";
+		};
+		B8AAB50F295993080008EC6D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB513295994410008EC6D /* ComposableSectionDataSource.swift */,
+				B8AAB510295993260008EC6D /* ComposableSectionLayouts.swift */,
+				B8AAB518295996560008EC6D /* ComposableSectionDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B8AAB515295994A00008EC6D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB516295994B60008EC6D /* TVShowCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E5411135810AEC9CC5C91B94 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0645AA5EAEB899868A488629 /* Pods_eTVShow.framework */,
+				3F090E88501AAF695FCC80F9 /* Pods_eTVShow_eTVShowUITests.framework */,
+				3B65797EE118998B6E6843FC /* Pods_eTVShowTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -296,9 +414,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8AAB4BC295676390008EC6D /* Build configuration list for PBXNativeTarget "eTVShow" */;
 			buildPhases = (
+				62E9ED9864838136051B150B /* [CP] Check Pods Manifest.lock */,
 				B8AAB48E295676370008EC6D /* Sources */,
 				B8AAB48F295676370008EC6D /* Frameworks */,
 				B8AAB490295676370008EC6D /* Resources */,
+				B996F279D14DF0ECACF0F35A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,6 +433,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8AAB4BF295676390008EC6D /* Build configuration list for PBXNativeTarget "eTVShowTests" */;
 			buildPhases = (
+				F42ED190ABCA5CDEA2A25E86 /* [CP] Check Pods Manifest.lock */,
 				B8AAB4A4295676390008EC6D /* Sources */,
 				B8AAB4A5295676390008EC6D /* Frameworks */,
 				B8AAB4A6295676390008EC6D /* Resources */,
@@ -331,9 +452,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B8AAB4C2295676390008EC6D /* Build configuration list for PBXNativeTarget "eTVShowUITests" */;
 			buildPhases = (
+				3F5215566CB68A6B635C0F78 /* [CP] Check Pods Manifest.lock */,
 				B8AAB4AE295676390008EC6D /* Sources */,
 				B8AAB4AF295676390008EC6D /* Frameworks */,
 				B8AAB4B0295676390008EC6D /* Resources */,
+				D5191C14C1CA67D19B0460A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,6 +537,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F5215566CB68A6B635C0F78 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eTVShow-eTVShowUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62E9ED9864838136051B150B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eTVShow-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B996F279D14DF0ECACF0F35A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eTVShow/Pods-eTVShow-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eTVShow/Pods-eTVShow-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eTVShow/Pods-eTVShow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5191C14C1CA67D19B0460A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F42ED190ABCA5CDEA2A25E86 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eTVShowTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B8AAB48E295676370008EC6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -423,6 +649,7 @@
 				B8AAB4F22956F1530008EC6D /* UIViewController+AlertController.swift in Sources */,
 				B8AAB4DE2956A09A0008EC6D /* UITextField+Combine.swift in Sources */,
 				B8AAB4FC2957A0EA0008EC6D /* HomeInteractor.swift in Sources */,
+				B8AAB514295994410008EC6D /* ComposableSectionDataSource.swift in Sources */,
 				B8AAB4CC29567C500008EC6D /* SpashView.swift in Sources */,
 				B8AAB4DB2956933E0008EC6D /* TextFieldWithPadding.swift in Sources */,
 				B8AAB4E42956DC660008EC6D /* LoginPresenterOutput.swift in Sources */,
@@ -433,18 +660,24 @@
 				B8AAB4FA29579FD80008EC6D /* HomeRouter.swift in Sources */,
 				B8AAB4FF2957A1940008EC6D /* HomePresenter.swift in Sources */,
 				B8AAB4CA29567AFE0008EC6D /* SplashPresenter.swift in Sources */,
+				B8AAB511295993260008EC6D /* ComposableSectionLayouts.swift in Sources */,
 				B8AAB4D52956891A0008EC6D /* LoginPresenter.swift in Sources */,
 				B8AAB4C8295679A10008EC6D /* SplashRouter.swift in Sources */,
 				B8AAB496295676370008EC6D /* AppDelegate.swift in Sources */,
+				B8AAB519295996560008EC6D /* ComposableSectionDelegate.swift in Sources */,
 				B8AAB4D1295687500008EC6D /* LoginRouter.swift in Sources */,
 				B8AAB4F52956F4890008EC6D /* KeychainManager.swift in Sources */,
 				B8AAB5012957A5120008EC6D /* HomePresenterOutput.swift in Sources */,
+				B8AAB517295994B60008EC6D /* TVShowCell.swift in Sources */,
+				B8AAB50B295991110008EC6D /* ComposableSection.swift in Sources */,
 				B8AAB4D7295689CF0008EC6D /* LoginView.swift in Sources */,
 				B8AAB5032957A55D0008EC6D /* HomePresenterInput.swift in Sources */,
 				B8AAB4EB2956E1BF0008EC6D /* NetworkRouter.swift in Sources */,
 				B8AAB498295676370008EC6D /* SceneDelegate.swift in Sources */,
 				B8AAB4D3295688370008EC6D /* LoginInteractor.swift in Sources */,
 				B8AAB4F7295791550008EC6D /* Defaults.swift in Sources */,
+				B8AAB50E295992D80008EC6D /* ComposableSectionOutput.swift in Sources */,
+				B8AAB506295978320008EC6D /* TVShow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +841,7 @@
 		};
 		B8AAB4BD295676390008EC6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43F2AFA63BDE0459905D32A5 /* Pods-eTVShow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -635,6 +869,7 @@
 		};
 		B8AAB4BE295676390008EC6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D21FCC3FDA09F0B725EDD32E /* Pods-eTVShow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -662,6 +897,7 @@
 		};
 		B8AAB4C0295676390008EC6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25A6F616B4E503E42FA56AE1 /* Pods-eTVShowTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -682,6 +918,7 @@
 		};
 		B8AAB4C1295676390008EC6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EE04FFC772F361769B0DA66 /* Pods-eTVShowTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -702,6 +939,7 @@
 		};
 		B8AAB4C3295676390008EC6D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E09B2A7378BE89209C28C4E /* Pods-eTVShow-eTVShowUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -720,6 +958,7 @@
 		};
 		B8AAB4C4295676390008EC6D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE5C74CB68E7904D8A48637E /* Pods-eTVShow-eTVShowUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
