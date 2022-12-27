@@ -150,16 +150,16 @@ private extension ProfileView {
             lblTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             lblTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
 
-            profileImage.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 42),
+            profileImage.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 35),
             profileImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
             profileImage.heightAnchor.constraint(equalToConstant: 120),
             profileImage.widthAnchor.constraint(equalToConstant: 120),
 
-            lblStackView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 82),
+            lblStackView.topAnchor.constraint(equalTo: lblTitle.bottomAnchor, constant: 72),
             lblStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16),
             lblStackView.widthAnchor.constraint(equalToConstant: view.frame.width / 2),
             
-            lblTitleShows.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 70),
+            lblTitleShows.topAnchor.constraint(equalTo: profileImage.bottomAnchor, constant: 35),
             lblTitleShows.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             lblTitleShows.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             

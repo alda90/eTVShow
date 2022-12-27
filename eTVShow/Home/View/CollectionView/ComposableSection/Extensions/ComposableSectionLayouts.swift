@@ -12,7 +12,7 @@ internal extension ComposableSection {
     
     func generateLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { [self] (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-            let isWideView = layoutEnvironment.container.effectiveContentSize.width > 500
+            let isWideView = layoutEnvironment.container.effectiveContentSize.width > 375
             
             let sectionLayoutKind = sectionType
             switch (sectionLayoutKind) {
@@ -65,9 +65,10 @@ internal extension ComposableSection {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 3, leading: 4, bottom: 3, trailing: 4)
         
-        let groupHeight = NSCollectionLayoutDimension.fractionalWidth(isWide ? 0.75 : 0.95)
+        let groupFractionalWidth = isWide ? 0.5 : 0.95
+        let groupHeight = NSCollectionLayoutDimension.fractionalWidth(0.95)
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
+            widthDimension: .fractionalWidth(CGFloat(groupFractionalWidth)),
             heightDimension: groupHeight)
         if #available(iOS 16.0, *) {
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 2)
