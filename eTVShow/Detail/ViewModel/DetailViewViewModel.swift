@@ -13,8 +13,6 @@ class DetailViewViewModel: ObservableObject {
     @Published var castShow: [Cast]?
     
     func loadData(id: Int) {
-        debugPrint(Defaults.shared.session)
-        debugPrint(Defaults.shared.account)
         NetworkManager.shared.request(networkRouter: NetworkRouter.getDetailTVShow(id: id)) { [weak self] (result: NetworkResult<TVShow>) in
             switch result {
             case .success(let response):

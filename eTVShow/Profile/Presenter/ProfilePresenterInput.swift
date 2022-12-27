@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 struct ProfilePresenterInput {
-    let loadTVShows = PassthroughSubject<Int, Never>()
+    let loadTVShows = PassthroughSubject<Void, Never>()
 }

@@ -26,8 +26,10 @@ class ProfileInteractor: ProfileInteractorInputProtocol {
     weak var presenter: ProfileInteractorOutputProtocol?
     
     func getTvShows() {
+        let account = Defaults.shared.account
+        let sessionId = Defaults.shared.session
         
-        NetworkManager.shared.request(networkRouter: .getPopular(page: "1")) { [weak self] (result: NetworkResult<TVResponse>) in
+        NetworkManager.shared.request(networkRouter: .favorites(id: account, sessionId: sessionId) ) { [weak self] (result: NetworkResult<TVResponse>) in
             switch result {
             case .success(let response):
                 self?.presenter?.interactorGetDataPresenter(receivedData: response, error: nil)

@@ -20,6 +20,7 @@ enum NetworkRouter {
     case getCredits(id: Int)
     case getEpisodes(id: Int, seasonNumber: Int)
     case markFavorite(id: Int, sessionId: String, body: Data)
+    case favorites(id: Int, sessionId: String)
     
     private static let baseURLString = "https://api.themoviedb.org/3"
     private static let apiKey = "608cfab9393cf6de1a420e80a1c19ffb"
@@ -51,6 +52,7 @@ enum NetworkRouter {
         case .getCredits: return .get
         case .getEpisodes: return .get
         case .markFavorite: return .post
+        case .favorites: return .get
         }
     }
     
@@ -80,6 +82,8 @@ enum NetworkRouter {
             return "/tv/\(id)/season/\(seasonNumber)"
         case .markFavorite(let id, let _, let _):
             return "/account/\(id)/favorite"
+        case .favorites(let id, let _):
+            return "/account/\(id)/favorite/tv"
         }
     }
     
@@ -98,7 +102,7 @@ enum NetworkRouter {
         case .getPopular(let page), .getTopRated(let page), .getOnAir(let page), .getAiringToday(let page):
             let query: [URLQueryItem] = [URLQueryItem(name: "page", value: page)]
             components.queryItems?.append(contentsOf: query)
-        case .accountDetail(let sessionId), .markFavorite(let _, let sessionId, let _):
+        case .accountDetail(let sessionId), .markFavorite(let _, let sessionId, let _), .favorites(let _, let sessionId):
             let query: [URLQueryItem] = [URLQueryItem(name: "session_id", value: sessionId)]
             components.queryItems?.append(contentsOf: query)
         default:

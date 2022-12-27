@@ -42,7 +42,7 @@ class HomeView: UIViewController {
     }()
     
     private lazy var collectionAdapter: ComposableSection = {
-        let adapter = ComposableSection(collectionView: collectionView, viewController: self)
+        let adapter = ComposableSection(collectionView: collectionView, viewController: self, sectionType: .grid)
         return adapter
     }()
     

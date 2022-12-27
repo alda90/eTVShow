@@ -15,22 +15,26 @@ import Combine
 
 public class ComposableSection: NSObject {
     
-    internal var collectionView: UICollectionView
-    private var viewController: UIViewController
-    
-    internal static let sectionFooterElementKind = "section-footer-element-kind"
-    internal enum Section: String, CaseIterable {
+    public enum Section: String, CaseIterable {
         case grid = "TV Shows"
         case horizontal = "Tv Shows"
     }
+    
+    internal var collectionView: UICollectionView
+    private var viewController: UIViewController
+    internal var sectionType: Section
+    
+    internal static let sectionFooterElementKind = "section-footer-element-kind"
+    
     internal var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     private var subscriptions = Set<AnyCancellable>()
     
     var output: ComposableSectionOutput = ComposableSectionOutput()
     
-    public init(collectionView: UICollectionView, viewController: UIViewController) {
+    public init(collectionView: UICollectionView, viewController: UIViewController, sectionType: Section) {
         self.collectionView = collectionView
         self.viewController = viewController
+        self.sectionType = sectionType
         super.init()
     }
     

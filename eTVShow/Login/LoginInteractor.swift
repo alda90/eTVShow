@@ -89,6 +89,7 @@ class LoginInteractor: LoginInteractorInputProtocol {
             case .success(let account):
                 Defaults.shared.account = account.id
                 Defaults.shared.avatar = account.avatar?.tmdb?.avatarPath ?? ""
+                Defaults.shared.user = account.name ?? ""
                 self?.presenter?.interactorGetDataPresenter(receivedData: response, error: nil)
             case .failure(error: let error):
                 self?.loginError(error: error)

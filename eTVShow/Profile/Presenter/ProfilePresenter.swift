@@ -33,8 +33,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     private var subscriptions = Set<AnyCancellable>()
     
     func bind(input: ProfilePresenterInput) -> ProfilePresenterOutput {
-        input.loadTVShows.sink { [weak self] load in
-//            self?.getTVShows(index: load.0)
+        input.loadTVShows.sink { [weak self] in
             self?.interactor?.getTvShows()
         }.store(in: &self.subscriptions)
         

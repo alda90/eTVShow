@@ -15,7 +15,7 @@ internal extension ComposableSection {
         <Section, AnyHashable>(collectionView: collectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, movieItem: AnyHashable) -> UICollectionViewCell? in
                 
-            let sectionType = Section.allCases[indexPath.section]
+            let sectionType = self.sectionType
             switch sectionType {
             case .grid, .horizontal:
                 guard let cell = collectionView.dequeueReusableCell(
@@ -31,8 +31,9 @@ internal extension ComposableSection {
         
     func snapshotForCurrentState(_ tvShows: [TVShow]) -> NSDiffableDataSourceSnapshot<Section, AnyHashable> {
             
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
-        snapshot.appendSections([Section.grid])
+        snapshot.appendSections([sectionType])
         snapshot.appendItems(tvShows)
             
         return snapshot

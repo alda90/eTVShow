@@ -15,6 +15,7 @@ class Defaults
     private let sessionKey = "session"
     private let accountKey = "account"
     private let avatarKey = "avatar"
+    private let nameKey = "name"
   
     var user: String {
         get {
@@ -53,6 +54,16 @@ class Defaults
         
         set {
             defaults.setValue(newValue, forKey: avatarKey)
+        }
+    }
+    
+    var name: String {
+        get {
+            return defaults.string(forKey: nameKey) ?? ""
+        }
+        
+        set {
+            defaults.setValue(newValue, forKey: nameKey)
         }
     }
   
