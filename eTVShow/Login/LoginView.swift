@@ -129,7 +129,9 @@ private extension LoginView {
         let output = presenter?.bind(input: presenterInput)
         
         output?.loginDataErrorPublisher
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: { [weak self] error in
+                self?.btnLogin.isEnabled = true
                 self?.presentAlert("We are sorry, and error has ocurred!", message: error.localizedDescription)
         }).store(in: &subscriptions)
     }
@@ -170,6 +172,9 @@ private extension LoginView {
     @objc func tappedAction() {
         if let input = isInputValid(),
             input.0 {
+            DispatchQueue.main.async {
+                self.btnLogin.isEnabled = false
+            }
             presenterInput.tapToLogin.send((input.1, input.2))
         }
     }

@@ -14,6 +14,7 @@ protocol HomeRouterProtocol {
     static func createHomeModule() -> UIViewController
     func goToDetail(from view: HomeViewProtocol)
     func goToProfile(from view: HomeViewProtocol)
+    func logOut(from view: HomeViewProtocol)
 }
 
 
@@ -21,7 +22,7 @@ protocol HomeRouterProtocol {
 /////////////////////// HOME ROUTER
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 class HomeRouter: HomeRouterProtocol {
-
+    
     var presenter: HomePresenterProtocol?
     
     static func createHomeModule() -> UIViewController {
@@ -54,6 +55,14 @@ class HomeRouter: HomeRouterProtocol {
         if let vc = view as? UIViewController {
             let homeView = ProfileRouter.createProfileModule()
             vc.present(homeView, animated: true)
+        }
+    }
+    
+    func logOut(from view: HomeViewProtocol) {
+        if let vc = view as? UIViewController {
+            let loginView = LoginRouter.createLoginModule()
+            loginView.modalPresentationStyle = .fullScreen
+            vc.present(loginView, animated: true)
         }
     }
 }

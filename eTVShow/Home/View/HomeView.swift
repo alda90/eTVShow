@@ -185,8 +185,8 @@ private extension HomeView {
             self?.presenterInput.goToProfile.send()
         }))
 
-        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { (_) in
-            print("User click Edit button")
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { [weak self] (_) in
+            self?.presenterInput.logOut.send()
         }))
 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in

@@ -141,7 +141,7 @@ private extension TVShowCell {
             posterImage.image = cacheImage
         } else {
             if let url = posterPathURL {
-                posterImage.sd_setImage(with: url) { [weak self] image, error, _, _ in
+                posterImage.sd_setImage(with: url, placeholderImage: UIImage(named: "logo")) { [weak self] image, error, _, _ in
                     guard let self = self else { return }
                     if let image = image {
                         self.posterImage.image = image

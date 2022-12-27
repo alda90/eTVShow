@@ -32,6 +32,7 @@ class LoginPresenter: LoginPresenterProtocol {
 
     func bind(input: LoginPresenterInput) -> LoginPresenterOutput {
         input.tapToLogin.sink { [weak self] (user, password) in
+           
             self?.interactor?.login(user: user, password: password)
         }.store(in: &self.subscriptions)
         

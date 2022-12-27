@@ -46,6 +46,10 @@ class HomePresenter: HomePresenterProtocol {
             self?.goToProfile()
         }.store(in: &self.subscriptions)
         
+        input.logOut.sink { [weak self] in
+            self?.logOut()
+        }.store(in: &self.subscriptions)
+        
         return output
     }
     
@@ -93,5 +97,23 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     
     func goToProfile() {
         router?.goToProfile(from: view!)
+    }
+    
+    func logOut() {
+        removeFromKeychain()
+        Defaults.shared.user = ""
+        Defaults.shared.name = ""
+        Defaults.shared.avatar = ""
+        Defaults.shared.account = 0
+        Defaults.shared.session = ""
+        router?.logOut(from: view!)
+    }
+    
+    private func removeFromKeychain() {
+        do {
+            try KeychainManager.remove(service: NetworkRouter.service, account: Defaults.shared.user)
+        } catch {
+            print(error)
+        }
     }
 }

@@ -60,4 +60,25 @@ class KeychainManager {
         return result as? Data
                 
     }
+    
+    static func remove(
+            service: String,
+            account: String) -> Data? {
+                debugPrint("reading...")
+        let query: [String: AnyObject] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrService as String: service as AnyObject,
+            kSecAttrAccount as String: account as AnyObject,
+            kSecReturnData as String: kCFBooleanTrue,
+            kSecMatchLimit as String: kSecMatchLimitOne
+        ]
+                
+        var result: AnyObject?
+        let status = SecItemDelete(query as CFDictionary)
+        
+        print("Read status: \(status)")
+                
+        return result as? Data
+                
+    }
 }
