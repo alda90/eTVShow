@@ -10,6 +10,7 @@ import Foundation
 // MARK: - CastResponse
 struct CastResponse: Codable {
     let cast: [Cast]
+    let id: Int
 }
 
 // MARK: - Cast

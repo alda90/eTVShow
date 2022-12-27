@@ -10,6 +10,13 @@ import Foundation
 // MARK: - EpisodeResponse
 struct EpisodeResponse: Codable {
     let episodes: [Episode]
+    let id: Int
+    let seasonNumber: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id, episodes
+        case seasonNumber = "season_number"
+    }
 }
 
 // MARK: - Episode
