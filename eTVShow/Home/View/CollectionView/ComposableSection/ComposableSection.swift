@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// MARK:  This distribution is clearer to read than having an only file the
@@ -17,11 +18,13 @@ public class ComposableSection: NSObject {
     internal var collectionView: UICollectionView
     private var viewController: UIViewController
     
+    internal static let sectionFooterElementKind = "section-footer-element-kind"
     internal enum Section: String, CaseIterable {
         case grid = "TV Shows"
         case horizontal = "Tv Shows"
     }
     internal var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
+    private var subscriptions = Set<AnyCancellable>()
     
     var output: ComposableSectionOutput = ComposableSectionOutput()
     
@@ -48,5 +51,6 @@ public class ComposableSection: NSObject {
             dataSource.apply(snapshot, animatingDifferences: false)
         }
     }
+    
 }
 

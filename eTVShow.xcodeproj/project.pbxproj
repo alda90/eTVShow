@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -47,6 +47,8 @@
 		B8AAB514295994410008EC6D /* ComposableSectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB513295994410008EC6D /* ComposableSectionDataSource.swift */; };
 		B8AAB517295994B60008EC6D /* TVShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB516295994B60008EC6D /* TVShowCell.swift */; };
 		B8AAB519295996560008EC6D /* ComposableSectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB518295996560008EC6D /* ComposableSectionDelegate.swift */; };
+		B8AAB542295A6E370008EC6D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB541295A6E370008EC6D /* DetailView.swift */; };
+		B8AAB545295A6E8A0008EC6D /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8AAB544295A6E8A0008EC6D /* UIComponents.swift */; };
 		B9381E2151D55A91D30E15C9 /* Pods_eTVShow_eTVShowUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F090E88501AAF695FCC80F9 /* Pods_eTVShow_eTVShowUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +119,8 @@
 		B8AAB513295994410008EC6D /* ComposableSectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionDataSource.swift; sourceTree = "<group>"; };
 		B8AAB516295994B60008EC6D /* TVShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCell.swift; sourceTree = "<group>"; };
 		B8AAB518295996560008EC6D /* ComposableSectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposableSectionDelegate.swift; sourceTree = "<group>"; };
+		B8AAB541295A6E370008EC6D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B8AAB544295A6E8A0008EC6D /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
 		D21FCC3FDA09F0B725EDD32E /* Pods-eTVShow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow.release.xcconfig"; path = "Target Support Files/Pods-eTVShow/Pods-eTVShow.release.xcconfig"; sourceTree = "<group>"; };
 		DE5C74CB68E7904D8A48637E /* Pods-eTVShow-eTVShowUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eTVShow-eTVShowUITests.release.xcconfig"; path = "Target Support Files/Pods-eTVShow-eTVShowUITests/Pods-eTVShow-eTVShowUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,7 +163,6 @@
 				25A6F616B4E503E42FA56AE1 /* Pods-eTVShowTests.debug.xcconfig */,
 				9EE04FFC772F361769B0DA66 /* Pods-eTVShowTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -188,6 +191,7 @@
 		B8AAB494295676370008EC6D /* eTVShow */ = {
 			isa = PBXGroup;
 			children = (
+				B8AAB540295A6DE20008EC6D /* Detail */,
 				B8AAB4F829579F990008EC6D /* Home */,
 				B8AAB4F32956F44C0008EC6D /* LocalStorage */,
 				B8AAB4E72956E1830008EC6D /* NetworkManager */,
@@ -395,6 +399,23 @@
 				B8AAB516295994B60008EC6D /* TVShowCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		B8AAB540295A6DE20008EC6D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB543295A6E580008EC6D /* View */,
+				B8AAB541295A6E370008EC6D /* DetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		B8AAB543295A6E580008EC6D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B8AAB544295A6E8A0008EC6D /* UIComponents.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E5411135810AEC9CC5C91B94 /* Frameworks */ = {
@@ -664,6 +685,7 @@
 				B8AAB4D52956891A0008EC6D /* LoginPresenter.swift in Sources */,
 				B8AAB4C8295679A10008EC6D /* SplashRouter.swift in Sources */,
 				B8AAB496295676370008EC6D /* AppDelegate.swift in Sources */,
+				B8AAB542295A6E370008EC6D /* DetailView.swift in Sources */,
 				B8AAB519295996560008EC6D /* ComposableSectionDelegate.swift in Sources */,
 				B8AAB4D1295687500008EC6D /* LoginRouter.swift in Sources */,
 				B8AAB4F52956F4890008EC6D /* KeychainManager.swift in Sources */,
@@ -677,6 +699,7 @@
 				B8AAB4D3295688370008EC6D /* LoginInteractor.swift in Sources */,
 				B8AAB4F7295791550008EC6D /* Defaults.swift in Sources */,
 				B8AAB50E295992D80008EC6D /* ComposableSectionOutput.swift in Sources */,
+				B8AAB545295A6E8A0008EC6D /* UIComponents.swift in Sources */,
 				B8AAB506295978320008EC6D /* TVShow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

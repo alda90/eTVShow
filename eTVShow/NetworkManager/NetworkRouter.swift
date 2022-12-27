@@ -11,7 +11,10 @@ enum NetworkRouter {
     case getToken
     case sessionLogin(body: Data)
     case createSession(body: Data)
-    case getPopular
+    case getPopular(page: String)
+    case getTopRated(page: String)
+    case getOnAir(page: String)
+    case getAiringToday(page: String)
     
     private static let baseURLString = "https://api.themoviedb.org/3"
     private static let apiKey = "608cfab9393cf6de1a420e80a1c19ffb"
@@ -35,7 +38,9 @@ enum NetworkRouter {
         case .sessionLogin: return .post
         case .createSession: return .post
         case .getPopular: return .get
-//        case .getVideos: return .get
+        case .getTopRated: return .get
+        case .getOnAir: return .get
+        case .getAiringToday: return .get
         }
     }
     
@@ -49,6 +54,12 @@ enum NetworkRouter {
             return "/authentication/session/new"
         case .getPopular:
             return "/tv/popular"
+        case .getTopRated:
+            return "/tv/top_rated"
+        case .getOnAir:
+            return "/tv/on_the_air"
+        case .getAiringToday:
+            return "/tv/airing_today"
 //        case .getVideos(let id):
 //            return "/\(id)/videos"
         }
@@ -64,6 +75,15 @@ enum NetworkRouter {
         components.queryItems = [
             URLQueryItem(name: "api_key", value: NetworkRouter.apiKey)
         ]
+        
+        switch self {
+        case .getPopular(let page), .getTopRated(let page), .getOnAir(let page), .getAiringToday(let page):
+            let query: [URLQueryItem] = [URLQueryItem(name: "page", value: page)]
+            components.queryItems?.append(contentsOf: query)
+        default:
+            break
+        }
+        
         
         guard let url = components.url else { throw NetworkErrorType.parseUrlFail }
         

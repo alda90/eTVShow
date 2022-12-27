@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 struct HomePresenterInput {
-    let loadTVShows = PassthroughSubject<NetworkRouter, Never>()
+    let loadTVShows = PassthroughSubject<(Int, Bool), Never>()
 }

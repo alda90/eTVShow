@@ -13,6 +13,8 @@ protocol HomePresenterProtocol: AnyObject {
     var view: HomeViewProtocol? { get set }
     var interactor: HomeInteractorInputProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
+    var isPaginating: Bool { get set }
+    var pagination: Bool { get set }
     
     func bind(input: HomePresenterInput) -> HomePresenterOutput
 }
@@ -22,17 +24,22 @@ protocol HomePresenterProtocol: AnyObject {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 class HomePresenter: HomePresenterProtocol {
-
+    
     weak var view: HomeViewProtocol?
     var interactor: HomeInteractorInputProtocol?
     var router: HomeRouterProtocol?
     var output: HomePresenterOutput = HomePresenterOutput()
+    var isPaginating: Bool = false
+    var pagination: Bool = false
+    private var tvshows = [TVShow]()
+    private var page = 1
     
     private var subscriptions = Set<AnyCancellable>()
     
     func bind(input: HomePresenterInput) -> HomePresenterOutput {
-        input.loadTVShows.sink { [weak self] type in
-            self?.interactor?.getTvShows(typeService: type)
+        input.loadTVShows.sink { [weak self] load in
+            self?.pagination = load.1
+            self?.getTVShows(index: load.0)
         }.store(in: &self.subscriptions)
         
         return output
@@ -41,11 +48,41 @@ class HomePresenter: HomePresenterProtocol {
 }
 
 extension HomePresenter: HomeInteractorOutputProtocol {
+    
+    func getTVShows(index: Int) {
+        if pagination {
+            page += 1
+            isPaginating = true
+        } else {
+            page = 1
+        }
+        let pageString = String(describing: page)
+        
+        switch index {
+        case 0:
+            interactor?.getTvShows(typeService: .getPopular(page: pageString))
+        case 1:
+            interactor?.getTvShows(typeService: .getTopRated(page: pageString))
+        case 2:
+            interactor?.getTvShows(typeService: .getOnAir(page: pageString))
+        case 3:
+            interactor?.getTvShows(typeService: .getAiringToday(page: pageString))
+        default:
+            break
+        }
+        
+    }
+    
     func interactorGetDataPresenter(receivedData: TVResponse?, error: Error?) {
+        isPaginating = false
+        if !pagination {
+            tvshows = []
+        }
         if let error = error {
             output.homeDataPublisher.send(.failure(error))
         } else if let data = receivedData {
-            output.homeDataPublisher.send(.success(data))
+            tvshows.append(contentsOf: data.tvshows)
+            output.homeDataPublisher.send(.success(tvshows))
         }
     }
     

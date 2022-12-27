@@ -35,8 +35,8 @@ class HomeInteractor: HomeInteractorInputProtocol {
             case .failure(error: let error):
                 self?.presenter?.interactorGetDataPresenter(receivedData: nil, error: error)
             }
-            
         }
+        
     }
     
 }

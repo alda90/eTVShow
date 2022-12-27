@@ -17,5 +17,10 @@ extension ComposableSection: UICollectionViewDelegate {
     }
     
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (collectionView.contentSize.height - 100 - collectionView.frame.size.height) {
+            output.fetchData.send()
+        }
     }
+
 }

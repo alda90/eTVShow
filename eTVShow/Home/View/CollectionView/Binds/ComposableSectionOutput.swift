@@ -10,4 +10,5 @@ import Combine
 
 struct ComposableSectionOutput {
     let callToAction = PassthroughSubject<TVShow, Never>()
+    let fetchData = PassthroughSubject<Void, Never>()
 }

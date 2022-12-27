@@ -34,7 +34,6 @@ internal extension ComposableSection {
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         snapshot.appendSections([Section.grid])
         snapshot.appendItems(tvShows)
-
             
         return snapshot
     }

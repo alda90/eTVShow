@@ -26,7 +26,7 @@ struct TVShow: Codable, Hashable {
     let firstAirDate: String?
     let genreIDS: [Int]?
     let id: Int
-    let name: String
+    var name: String
     let originCountry: [String]?
     let originalLanguage: String?
     let originalName: String?
@@ -58,6 +58,20 @@ struct TVShow: Codable, Hashable {
         guard let url = URL(string: urlString) else { return nil }
         
         return url
+    }
+    
+    func formattedReleasedDate() -> String {
+        if let firstAirDate = firstAirDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            
+            let newDateFormatter = DateFormatter()
+            newDateFormatter.dateFormat = "MMM d, yyyy"
+            
+            return newDateFormatter.string(from: dateFormatter.date(from: firstAirDate ) ?? Date())
+        }
+        
+        return ""
     }
     
     func hash(into hasher: inout Hasher) {
