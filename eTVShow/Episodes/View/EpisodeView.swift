@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct EpisodeView: View {
     @ObservedObject var viewModel = EpisodeViewModel()
@@ -30,7 +31,7 @@ struct EpisodeView: View {
                                 let episodes = viewModel.episodes[index.seasonNumber ?? 0]
                                 
                                 ForEach(episodes ?? [Episode](), id: \.id) { epi in
-                                    cardView(name: epi.name ?? "")
+                                    cardView(url: epi.stillPathURL(), name: epi.name ?? "")
                                 }
                                
                             }.onAppear {
@@ -59,10 +60,11 @@ struct EpisodeView_Previews: PreviewProvider {
 }
 
 struct cardView: View {
+    var url: URL?
     var name: String?
     var body: some View {
         VStack(alignment: .leading) {
-            Image("orange")
+            WebImage(url: url)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
             Text(name ?? "")

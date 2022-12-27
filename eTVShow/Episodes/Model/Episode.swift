@@ -24,4 +24,12 @@ struct Episode: Codable {
         case id, name, overview
         case stillPath = "still_path"
     }
+    
+    func stillPathURL() -> URL? {
+        let urlString = "\(TVShow.baseURLImageString)\(stillPath ?? "")"
+        
+        guard let url = URL(string: urlString) else { return nil }
+        
+        return url
+    }
 }

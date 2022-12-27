@@ -70,11 +70,26 @@ class LoginInteractor: LoginInteractorInputProtocol {
             switch result {
             case .success(let response):
                 if response.success {
-                    Defaults.shared.session = response.session_id ?? ""
-                    self?.presenter?.interactorGetDataPresenter(receivedData: response, error: nil)
+                    if let sessionId = response.session_id {
+                        Defaults.shared.session = sessionId
+                        self?.getAccountDetail(sessionId: sessionId, response: response)
+                    }
                 } else {
                     self?.loginError(error: NetworkErrorType.serverError)
                 }
+            case .failure(error: let error):
+                self?.loginError(error: error)
+            }
+        }
+    }
+    
+    private func getAccountDetail(sessionId: String, response: TokenResponse) {
+        NetworkManager.shared.request(networkRouter: .accountDetail(sessionId: sessionId)) { [weak self] (result: NetworkResult<Account>) in
+            switch result {
+            case .success(let account):
+                Defaults.shared.account = account.id
+                Defaults.shared.avatar = account.avatar?.tmdb?.avatarPath ?? ""
+                self?.presenter?.interactorGetDataPresenter(receivedData: response, error: nil)
             case .failure(error: let error):
                 self?.loginError(error: error)
             }

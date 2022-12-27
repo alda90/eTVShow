@@ -13,6 +13,8 @@ class Defaults
   
     private let userKey = "user"
     private let sessionKey = "session"
+    private let accountKey = "account"
+    private let avatarKey = "avatar"
   
     var user: String {
         get {
@@ -31,6 +33,26 @@ class Defaults
         
         set {
             defaults.setValue(newValue, forKey: sessionKey)
+        }
+    }
+    
+    var account: Int {
+        get {
+            return defaults.integer(forKey: accountKey)
+        }
+        
+        set {
+            defaults.setValue(newValue, forKey: accountKey)
+        }
+    }
+    
+    var avatar: String {
+        get {
+            return defaults.string(forKey: avatarKey) ?? ""
+        }
+        
+        set {
+            defaults.setValue(newValue, forKey: avatarKey)
         }
     }
   

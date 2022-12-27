@@ -42,6 +42,10 @@ class HomePresenter: HomePresenterProtocol {
             self?.getTVShows(index: load.0)
         }.store(in: &self.subscriptions)
         
+        input.goToProfile.sink { [weak self] in
+            self?.goToProfile()
+        }.store(in: &self.subscriptions)
+        
         return output
     }
     
@@ -86,4 +90,8 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         }
     }
     
+    
+    func goToProfile() {
+        router?.goToProfile(from: view!)
+    }
 }

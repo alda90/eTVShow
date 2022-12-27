@@ -143,6 +143,7 @@ struct DetailView: View {
                     
                     Button(action: {
                         favorite = !favorite
+                        viewModel.markFavorite(mediaId: tvShowObject.tvshow?.id ?? 0, favorite: favorite)
                     }) {
                         Image(systemName: favorite ? "heart.fill" : "heart")
                             .foregroundColor(Color("principal"))

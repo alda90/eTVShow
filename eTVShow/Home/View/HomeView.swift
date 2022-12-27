@@ -160,7 +160,7 @@ private extension HomeView {
     }
     
     @objc func didTapMenu() {
-        
+        showSimpleActionSheet(controller: self)
     }
     
     @objc func segmentControl(_ segmentedControl: UISegmentedControl) {
@@ -179,6 +179,24 @@ private extension HomeView {
     }
     
 
+    func showSimpleActionSheet(controller: UIViewController) {
+        let alert = UIAlertController(title: "", message: "What do you want to do?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "View Profile", style: .default, handler: { [weak self] (_) in
+            self?.presenterInput.goToProfile.send()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Log out", style: .destructive, handler: { (_) in
+            print("User click Edit button")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            print("User click Dismiss button")
+        }))
+
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
 }
 
 extension HomeView: HomeViewProtocol { }
