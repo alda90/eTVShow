@@ -90,16 +90,6 @@ class TVShowCell: UICollectionViewCell {
         let star = "\u{2606}"
         lblRating.text = "\(star) \(String(describing: tvShow.voteAverage ?? 0.0))"
         lblOverview.text = tvShow.overview
-        
-//        if let firstAirDate = tvShow.firstAirDate {
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd"
-//
-//            let newDateFormatter = DateFormatter()
-//            newDateFormatter.dateFormat = "MMM d, yyyy"
-//
-//            lblReleaseDate.text = newDateFormatter.string(from: dateFormatter.date(from: firstAirDate ) ?? Date())
-//        }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct Corners: Shape {
     func path(in rect: CGRect) -> Path {
@@ -26,4 +27,23 @@ struct RoundedRectangleButtonStyle: ButtonStyle {
     .background(Color("principal").cornerRadius(8))
     .scaleEffect(configuration.isPressed ? 0.95 : 1)
   }
+}
+
+struct iconView: View {
+    var url: URL?
+    var name: String?
+    var body: some View {
+        VStack {
+            WebImage(url: url)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .clipShape(Circle())
+                .frame(width: 80, height: 80)
+            Text(name ?? "")
+                .foregroundColor(Color.white)
+                .font(.system(size: 14))
+                .padding(.top, 4)
+        }
+        .frame(width: 120, height: 120)
+    }
 }

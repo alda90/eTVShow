@@ -35,6 +35,8 @@ struct TVShow: Codable, Hashable {
     let posterPath: String?
     let voteAverage: Double?
     let voteCount: Int?
+    let createdBy: [CreatedBy]?
+    let seasons: [Season]?
 
     enum CodingKeys: String, CodingKey {
         case backdropPath = "backdrop_path"
@@ -48,12 +50,22 @@ struct TVShow: Codable, Hashable {
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+        case createdBy = "created_by"
+        case seasons
     }
     
-    private static let baseURLImageString = "https://image.tmdb.org/t/p/w500"
+    static let baseURLImageString = "https://image.tmdb.org/t/p/w500"
     
     func posterPathURL() -> URL? {
         let urlString = "\(TVShow.baseURLImageString)\(posterPath ?? "")"
+        
+        guard let url = URL(string: urlString) else { return nil }
+        
+        return url
+    }
+    
+    func backdropPathURL() -> URL? {
+        let urlString = "\(TVShow.baseURLImageString)\(backdropPath ?? "")"
         
         guard let url = URL(string: urlString) else { return nil }
         
@@ -74,6 +86,27 @@ struct TVShow: Codable, Hashable {
         return ""
     }
     
+    func getCreators() -> String {
+        var creators = ""
+        
+        if let createdBy = createdBy {
+            creators = createdBy.map { $0.name ?? "" }.joined(separator: ",")
+        }
+        
+        return creators
+    }
+    
+    func getLastSeason() -> Season? {
+        
+        guard let seasons = seasons else { return nil }
+        
+        let sortedSeasons = seasons.sorted {
+            $0.seasonNumber ?? 0 < $1.seasonNumber ?? 0
+        }
+        
+        return sortedSeasons.last
+    }
+    
     func hash(into hasher: inout Hasher) {
       hasher.combine(identifier)
     }
@@ -84,3 +117,4 @@ struct TVShow: Codable, Hashable {
 
     private let identifier = UUID()
 }
+

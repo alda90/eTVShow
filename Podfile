@@ -7,6 +7,7 @@ target 'eTVShow' do
 
   # Pods for eTVShow
   pod 'SDWebImage'
+  pod 'SDWebImageSwiftUI'
 
   target 'eTVShowTests' do
     inherit! :search_paths

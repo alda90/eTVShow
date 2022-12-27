@@ -15,6 +15,9 @@ enum NetworkRouter {
     case getTopRated(page: String)
     case getOnAir(page: String)
     case getAiringToday(page: String)
+    case getDetailTVShow(id: Int)
+    case getCredits(id: Int)
+    case getEpisodes(id: Int, seasonNumber: Int)
     
     private static let baseURLString = "https://api.themoviedb.org/3"
     private static let apiKey = "608cfab9393cf6de1a420e80a1c19ffb"
@@ -41,6 +44,9 @@ enum NetworkRouter {
         case .getTopRated: return .get
         case .getOnAir: return .get
         case .getAiringToday: return .get
+        case .getDetailTVShow: return .get
+        case .getCredits: return .get
+        case .getEpisodes: return .get
         }
     }
     
@@ -60,8 +66,12 @@ enum NetworkRouter {
             return "/tv/on_the_air"
         case .getAiringToday:
             return "/tv/airing_today"
-//        case .getVideos(let id):
-//            return "/\(id)/videos"
+        case .getDetailTVShow(let id):
+            return "/tv/\(id)"
+        case .getCredits(let id):
+            return "/tv/\(id)/credits"
+        case .getEpisodes(let id, let seasonNumber):
+            return "/tv/\(id)/season/\(seasonNumber)"
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 class TVShowObject: ObservableObject {
     @Published var tvshow: TVShow?
@@ -16,16 +17,19 @@ class TVShowObject: ObservableObject {
 }
 
 struct DetailView: View {
+    @State private var showingSheet = false
     @ObservedObject var tvShowObject: TVShowObject
+    @ObservedObject var viewModel = DetailViewViewModel()
+    @State private var favorite = false
     weak var navigationController: UINavigationController?
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Color("background").edgesIgnoringSafeArea(.all)
-            Image("orange")
+            WebImage(url: tvShowObject.tvshow?.backdropPathURL())
                 .resizable()
                 .frame(height: UIScreen.main.bounds.height / 3)
-           
+            
             ScrollView {
                 ZStack (alignment: .topTrailing) {
                     VStack(alignment: .leading) {
@@ -52,7 +56,7 @@ struct DetailView: View {
                             .multilineTextAlignment(.leading)
                             .offset(x: 45, y: 55)
                         
-                        Text("CReated by Dan Harmond")
+                        Text(viewModel.tvShow?.getCreators() ?? "")
                             .frame(maxWidth: UIScreen.main.bounds.width - 75, alignment: .leading)
                             .foregroundColor(Color.white)
                             .font(.system(size: 14))
@@ -68,23 +72,23 @@ struct DetailView: View {
                             .offset(x: 45, y: 90)
                         
                         HStack {
-                            Image("jesus")
+                            WebImage(url: viewModel.tvShow?.getLastSeason()?.posterPathURL())
                                 .resizable()
                                 .frame( width: 120, height: 160)
                             
                             VStack(alignment: .leading) {
-                                Text("Season 4")
+                                Text("Season \(viewModel.tvShow?.getLastSeason()?.seasonNumber ?? 0)")
                                     .foregroundColor(Color.white)
                                     .font(.system(size: 14, weight: .semibold))
                                     .multilineTextAlignment(.leading)
                                 
-                                Text(tvShowObject.tvshow?.formattedReleasedDate() ?? "")
+                                Text(viewModel.tvShow?.getLastSeason()?.formattedairDate() ?? "")
                                     .foregroundColor(Color("principal"))
                                     .font(.system(size: 12))
                                     .multilineTextAlignment(.leading)
                                 
                                 Button(action: {
-                                    navigationController?.popViewController(animated: true)
+                                    showingSheet.toggle()
                                 }) {
                                     Text("View all seasons")
                                         .font(.system(size: 14))
@@ -95,6 +99,9 @@ struct DetailView: View {
                                 .buttonStyle(BorderlessButtonStyle())
                                 .buttonStyle(DefaultButtonStyle())
                                 .padding(.top, 20)
+                                .sheet(isPresented: $showingSheet) {
+                                    EpisodeView(seasons: viewModel.tvShow?.seasons ?? [], tvId: tvShowObject.tvshow?.id ?? 0)
+                                }
                                 
                             }.padding(.leading, 25)
                         } .offset(x: 45, y: 95)
@@ -106,6 +113,17 @@ struct DetailView: View {
                             .multilineTextAlignment(.leading)
                             .offset(x: 45, y: 115)
                         
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack {
+                                ForEach(viewModel.castShow ?? [Cast](), id: \.id) { index in
+                                    iconView(url: index.profilePathURL(), name: index.name )
+                                }
+                            }
+
+                        }
+                        .frame(height: 130)
+                        .offset(x: 45, y: 125)
+                        
                         Spacer()
 
                     }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -114,8 +132,8 @@ struct DetailView: View {
                      .clipShape(Corners())
                      .offset(y: (UIScreen.main.bounds.height / 3) - 60)
                     
-                    Text("8.5")
-                        .frame(width: 35, height: 35)
+                    Text(String(tvShowObject.tvshow?.voteAverage ?? 0.0))
+                        .frame(width: 40, height: 40)
                         .foregroundColor(Color.white)
                         .background(Color("principal"))
                         .clipShape(Circle())
@@ -124,14 +142,14 @@ struct DetailView: View {
                         .offset(y: (UIScreen.main.bounds.height / 3) - 80 )
                     
                     Button(action: {
-                        
+                        favorite = !favorite
                     }) {
-                        Text("\u{2606}")
+                        Image(systemName: favorite ? "heart.fill" : "heart")
                             .foregroundColor(Color("principal"))
                     }
-                    .frame(width: 35, height: 35)
+                    .frame(width: 45, height: 45)
                     .padding(.trailing, 55)
-                    .offset(y: (UIScreen.main.bounds.height / 3) - 30 )
+                    .offset(y: (UIScreen.main.bounds.height / 3) - 35)
                 }
                 .padding(0)
                 .frame(width: UIScreen.main.bounds.width)
@@ -140,7 +158,12 @@ struct DetailView: View {
             .padding(0)
             .frame(width: UIScreen.main.bounds.width)
 
-        }.edgesIgnoringSafeArea(.top)
+        }
+        .edgesIgnoringSafeArea(.top)
+        .onAppear {
+            viewModel.loadData(id: tvShowObject.tvshow?.id ?? 0)
+            viewModel.loadCredits(id: tvShowObject.tvshow?.id ?? 0)
+        }
         
     }
 }
